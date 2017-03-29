@@ -1,21 +1,31 @@
 <div class="app-container">
-  <div class="row">
+  <div class="row" *ngIf="!(companiesAsync | async)?.results.length">
     <div class="col-md-12">
       <div class="card card-inverse app-notification">
         <div class="card-block">
-          <h3 class="card-title">No Tournaments Yet!</h3>
-          <p class="card-text">Click here to create a new tournament</p>
-          <button class="btn btn-primary pull-right" routerLink="/new-tournament">New Tournament</button>
+          <h3 class="card-title">No Companies Yet!</h3>
+          <p class="card-text">Click here to create a new company</p>
+          <button class="btn btn-primary pull-right" routerLink="/new-company">New Company</button>
         </div>
       </div>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-8">
-
-    </div>
-    <div class="col-md-8">
-
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h3>Companies</h3>
+        </div>
+        <div class="card-block">
+          <ul class="list-group">
+            <li class="list-group-item" *ngFor="let company of (companiesAsync | async)?.results">
+              <div><strong>{{company.name}}</strong></div>
+              <div class="text-muted">{{company.description}}</div>
+              <a href="#" (click)="editCompany(company)"><i class="fa fa-edit"></i> Edit</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </div>

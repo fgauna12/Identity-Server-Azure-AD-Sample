@@ -1,3 +1,4 @@
+import { AuthorizationService } from '../authorization.service';
 import { AuthenticationService } from '../authentication.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from 'oidc-client';
@@ -11,7 +12,8 @@ export class NavbarComponent implements OnInit {
   isLoggedIn: boolean;
   currentUser: User;
   currentUserName: string;
-  constructor(private authenticationService: AuthenticationService) {
+  currentRole: string;
+  constructor(private authenticationService: AuthenticationService, private authorizationService: AuthorizationService) {
   }
 
   ngOnInit() {
@@ -28,6 +30,7 @@ export class NavbarComponent implements OnInit {
       console.log('Loaded user', user);
       this.currentUser = user;
       this.currentUserName = user.profile ? (Array.isArray(user.profile.name) ? user.profile.name[0] : user.profile.name) : null;
+      this.currentRole = user.profile? user.profile.role : null;
     });
   }
 

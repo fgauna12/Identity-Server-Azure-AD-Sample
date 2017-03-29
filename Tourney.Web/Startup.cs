@@ -70,8 +70,7 @@ namespace Tourney.Web
             {
                 Authority = "http://localhost:5000",
                 RequireHttpsMetadata = false,
-                ApiName = "tournaments",
-                AllowedScopes = { "tournaments"}
+                ApiName = "dealerApi"
             });
 
             app.UseSwagger();
@@ -85,10 +84,7 @@ namespace Tourney.Web
         {
             var builder = new ContainerBuilder();
 
-            builder.RegisterModule(new ApplicationModule()
-            {
-                RavenConfiguration = Configuration.GetSection("ConnectionStrings:Raven").Get<RavenConfiguration>()
-            });
+            builder.RegisterModule(new ApplicationModule());
 
             builder.Populate(services);
             this.ApplicationContainer = builder.Build();

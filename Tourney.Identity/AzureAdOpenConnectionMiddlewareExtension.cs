@@ -57,7 +57,7 @@ namespace Tourney.Identity
                     },
                     OnUserInformationReceived = async context =>
                     {
-                        logger.LogInformation(context.User.ToString());
+                        //logger.LogInformation(context.User.ToString());
                         await Task.FromResult(0);
                     }
                     //OnAuthorizationCodeReceived = async context =>

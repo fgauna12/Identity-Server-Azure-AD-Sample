@@ -9,14 +9,13 @@ namespace Tourney.Identity
         {
             return new List<ApiResource>()
             {
-                new ApiResource("tournaments", "Tournaments")
+                new ApiResource("dealerApi", "Dealer API")
                 {
-                    DisplayName = "Tournaments API",
                     UserClaims = new List<string>()
                     {
                         "role"
                     }
-                }
+                },
             };
         }
     }

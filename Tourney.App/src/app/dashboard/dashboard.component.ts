@@ -1,5 +1,7 @@
-import { Tournament } from '../tournament/tournament.model';
-import { TournamentService } from '../tournament/tournament.service';
+import { PagedResponse } from '../company/company.model';
+import { Observable } from 'rxjs/Rx';
+import { Company } from '../company/company.model';
+import { CompanyService } from '../company/company.service';
 import { AuthenticationService } from '../shared/authentication.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,24 +11,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  tournaments: Tournament[];
-  totalTournaments: number;
+  companiesAsync: Observable<PagedResponse<Company>>;
+  isLoggedIn: boolean;
   constructor(private authenticationService: AuthenticationService,
-              private tournamentService: TournamentService) { }
+              private companyService: CompanyService) {}
 
   ngOnInit() {
-    this.loadTournaments();
+    this.loadCompanies();
+    this.authenticationService.isLoggedIn()
+      .subscribe(isLoggedIn => { this.isLoggedIn = isLoggedIn; });
   }
 
-  loadTournaments() {
-    this.tournaments = [];
-    this.tournamentService.getTournaments()
-      .subscribe(pagedResponse => {
-        this.tournaments = pagedResponse.results;
-        this.totalTournaments = pagedResponse.total;
-      },
-      err => {
-        console.error('Could not get the tournaments');
-      });
+  loadCompanies() {
+    this.companiesAsync = this.companyService.getCompanies();
   }
 }

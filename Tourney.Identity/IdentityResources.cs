@@ -14,6 +14,9 @@ namespace Tourney.Identity
                 new IdentityResource()
                 {
                     Name = "role",
+                    Required = true,
+                    DisplayName = "Role",
+                    Description = "User's role in the system",
                     UserClaims = new List<string>()
                     {
                         "role"

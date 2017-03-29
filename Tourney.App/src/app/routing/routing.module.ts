@@ -8,7 +8,7 @@ import { NewTournamentComponent } from '../new-tournament/new-tournament.compone
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'new-tournament', component: NewTournamentComponent },
+  { path: 'new-company', component: NewTournamentComponent },
   { path: 'callback', component: CallbackComponent },
   { path: '', pathMatch: 'full', redirectTo: '/dashboard' },
   { path: '**', pathMatch: 'full', component: NotfoundComponent }

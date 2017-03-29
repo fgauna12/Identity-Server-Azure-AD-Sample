@@ -22,7 +22,7 @@ namespace Tourney.Identity
                     },
                     AllowedScopes = new List<string>()
                     {
-                        "tournaments"
+                        "dealerApi"
                     },
                     ClientName = "Tourney API",
                     AccessTokenType = AccessTokenType.Jwt
@@ -42,8 +42,10 @@ namespace Tourney.Identity
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
-                        "tournaments"
-                    }
+                        "dealerApi",
+                        "role"
+                    },
+                    AlwaysIncludeUserClaimsInIdToken = true
                 }
             };
         }
