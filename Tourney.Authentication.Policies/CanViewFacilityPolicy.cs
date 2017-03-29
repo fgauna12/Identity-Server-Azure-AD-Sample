@@ -1,29 +1,28 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using FluentValidation;
+using IdentityModel;
 using Tourney.Domain;
 
 namespace Tourney.Authentication.Policies
 {
-    public class CanViewFacilityPolicy : ICustomAuthenticationPolicy
+    public class CanViewFacilityAccessValidator : AbstractValidator<ClaimsPrincipal>
     {
-        private readonly ClaimsPrincipal _claimsPrincipal;
-
-        public CanViewFacilityPolicy(ClaimsPrincipal claimsPrincipal)
+        public CanViewFacilityAccessValidator()
         {
-            _claimsPrincipal = claimsPrincipal;
+            RuleFor(customer => customer.Claims).NotEmpty();
+            RuleFor(customer => customer.Claims)
+                .Must(BeAuthorized)
+                .WithMessage("Unauthorizer. Your role does not have enough permissions");
         }
 
-        public bool IsAuthorized()
+        private bool BeAuthorized(IEnumerable<Claim> arg)
         {
-            //Is facility or developer
-            if (_claimsPrincipal.IsInRole(Roles.FacilityAdmin.ClaimValue)
-                || _claimsPrincipal.IsInRole(Roles.Developer.ClaimValue))
-            {
-                return true;
-            }
-
-            return false;
+            var roles = arg.Where(x => x.Type == JwtClaimTypes.Role);
+            return roles.Any(x => x.Value == Roles.FacilityAdmin.ClaimValue || x.Value == Roles.Developer.ClaimValue);
         }
     }
 }

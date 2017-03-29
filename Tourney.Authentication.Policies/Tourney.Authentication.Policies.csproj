@@ -5,10 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="6.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Tourney.Domain\Tourney.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="IdentityModel">
+      <HintPath>..\..\..\Users\FacundoGauna\.nuget\packages\identitymodel\2.6.0\lib\netstandard1.3\IdentityModel.dll</HintPath>
+    </Reference>
     <Reference Include="System.Security.Claims">
       <HintPath>..\..\..\Users\FacundoGauna\.nuget\packages\system.security.claims\4.3.0\ref\netstandard1.3\System.Security.Claims.dll</HintPath>
     </Reference>
