@@ -24,6 +24,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Tourney.Application\Tourney.Application.csproj" />
+    <ProjectReference Include="..\Tourney.Authentication.Policies\Tourney.Authentication.Policies.csproj" />
     <ProjectReference Include="..\Tourney.Infrastructure.Dtos\Tourney.Infrastructure.Dtos.csproj" />
   </ItemGroup>
 

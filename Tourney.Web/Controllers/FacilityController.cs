@@ -1,8 +1,12 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Security.Claims;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Tourney.Application.Services.Facility;
+using Tourney.Domain;
 using Tourney.Infrastructure.Dtos;
+using Tourney.Web.Authentication;
 
 namespace Tourney.Web.Controllers
 {
@@ -18,8 +22,8 @@ namespace Tourney.Web.Controllers
 
         [Route("")]
         [HttpGet]
-        [Authorize]
-        public async Task<IActionResult> GetTournaments(PagedRequest pagedRequest)
+        [Authorize(Policy = CustomPolicies.CanViewFacilities)]
+        public async Task<IActionResult> GetFacilities(PagedRequest pagedRequest)
         {
             var response = await _facilityService.GetFacilitiesAsync();
             return Ok(response);

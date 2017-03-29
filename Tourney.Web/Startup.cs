@@ -7,6 +7,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Tourney.Application;
+using Tourney.Web.Authentication;
+using Tourney.Web.Controllers;
 
 namespace Tourney.Web
 {
@@ -46,6 +48,8 @@ namespace Tourney.Web
                         .AllowAnyMethod();
                 });
             });
+
+            services.AddCustomPolicies();
 
             ConfigureIoc(services);
             

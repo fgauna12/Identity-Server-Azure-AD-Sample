@@ -18,7 +18,7 @@
         </div>
         <div class="card-block">
           <ul class="list-group">
-            <li class="list-group-item" *ngFor="let company of (companiesAsync | async)?.results">
+            <li class="list-group-item flex-column align-items-start" *ngFor="let company of (companiesAsync | async)?.results">
               <div><strong>{{company.name}}</strong></div>
               <div class="text-muted">{{company.description}}</div>
               <a href="#" (click)="editCompany(company)"><i class="fa fa-edit"></i> Edit</a>

@@ -30,7 +30,7 @@ namespace Tourney.Identity
                 new Client
                 {
                     ClientId = "js",
-                    ClientName = "JavaScript Client",
+                    ClientName = "Sample App",
                     AllowedGrantTypes = GrantTypes.Implicit,
                     AllowAccessTokensViaBrowser = true,
 

@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row" *ngIf="!facilitiesAsynError">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h3>Facilities</h3>
+        </div>
+        <div class="card-block">
+          <ul class="list-group">
+            <li class="list-group-item flex-column align-items-start" *ngFor="let facility of (facilitiesAsync | async)?.results">
+              <div class=""><strong>{{facility.name}}</strong></div>
+              <p class="text-muted">{{facility.addressLine1}} {{facility.city}}, {{facility.state}} {{facility.zipCode}}</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="facilitiesAsynError">
+    <div class="alert alert-danger">
+        There was a problem viewing facilities <br/>
+        {{facilitiesAsynError | json}}
+      </div>
+  </div>
+</div>

@@ -1,3 +1,4 @@
+import { FacilityService } from './facilities/facility.service';
 import 'bootstrap';
 
 import { BrowserModule } from '@angular/platform-browser';
@@ -18,6 +19,7 @@ import { NotfoundComponent } from './routing/notfound/notfound.component';
 import { RoutingModule } from './routing/routing.module';
 import { NewTournamentComponent } from './new-tournament/new-tournament.component';
 import { CallbackComponent } from './login/callback/callback.component';
+import { ListComponent } from './facilities/list/list.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { CallbackComponent } from './login/callback/callback.component';
     DashboardComponent,
     NotfoundComponent,
     NewTournamentComponent,
-    CallbackComponent
+    CallbackComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,7 @@ import { CallbackComponent } from './login/callback/callback.component';
     RoutingModule,
     NgbModule.forRoot(),
   ],
-  providers: [AuthenticationService, CompanyService, AuthorizationService],
+  providers: [AuthenticationService, CompanyService, AuthorizationService, FacilityService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
