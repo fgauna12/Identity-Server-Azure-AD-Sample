@@ -1,6 +1,6 @@
 # Identity Server 4 Sample using Azure AD
 
-Sample web application secured by a single sign-on app using Identity Server 4. Web application is a SPA that uses a Web API to get its data.
+Sample web application secured by a single sign-on app using [Identity Server 4](https://github.com/IdentityServer/IdentityServer4). Web application is a SPA that uses a Web API to get its data.
 
 Identity Server 4 is follows the [Open Id Connect](http://openid.net/connect/) standard.
 
@@ -10,6 +10,8 @@ Identity Server 4 is follows the [Open Id Connect](http://openid.net/connect/) s
 - ASP.Net Core
 
 ## Overview 
+
+![Project Layout](img/architecture.png)
 
 ### Project Structure:
 - **Tourney.Identity** - Single sign-on web app
@@ -32,7 +34,7 @@ Download [ASP.NET Core](https://www.asp.net/core)
  
 From Tourney.App directory, download the NPM packages 
 ```
-`npm install`
+npm install
 ```
 Then run the app using:
 ```
@@ -45,5 +47,5 @@ Using Visual Studio, set up multiple start up projects.
 
 Make sure that you're not using IIS Express or the ports will be auto-assigned. From the project settings, specify to debug as **Project**
 
-
+![Visual Studio - Set as Debug from Project Property](img/VisualStudioDebugProperty.png)
 
