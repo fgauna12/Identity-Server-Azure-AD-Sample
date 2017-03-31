@@ -47,7 +47,7 @@ Make sure that you're not using IIS Express or the ports will be auto-assigned. 
 
 ![Visual Studio - Set as Debug from Project Property](img/VisualStudioDebugProperty.PNG)
 
-### Custom Azure AD
+## Use your own Azure AD
 
 ### Register the sample app
 
