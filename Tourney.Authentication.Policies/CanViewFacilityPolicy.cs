@@ -13,8 +13,8 @@ namespace Tourney.Authentication.Policies
     {
         public CanViewFacilityAccessValidator()
         {
-            RuleFor(customer => customer.Claims).NotEmpty();
-            RuleFor(customer => customer.Claims)
+            RuleFor(claims => claims.Claims).NotEmpty();
+            RuleFor(claims => claims.Claims)
                 .Must(BeAuthorized)
                 .WithMessage("Unauthorizer. Your role does not have enough permissions");
         }
