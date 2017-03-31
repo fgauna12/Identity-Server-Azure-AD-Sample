@@ -46,7 +46,7 @@ namespace Tourney.Identity
                 .AddInMemoryPersistedGrants()
                 .AddInMemoryIdentityResources(Identities.GetIdentityResources())
                 .AddInMemoryClients(Clients.Get())
-                .AddInMemoryApiResources(Resources.Get())
+                .AddInMemoryApiResources(Apis.Get())
                 .AddTestUsers(TestUsers.Users);
 
             //For azure ad

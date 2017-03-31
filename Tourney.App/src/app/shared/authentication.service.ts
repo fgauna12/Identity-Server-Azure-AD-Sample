@@ -8,7 +8,7 @@ export const UserManagerConfiguration: Oidc.UserManagerSettings = {
   client_id: "js",
   redirect_uri: "http://localhost:5003/callback",
   response_type: "id_token token",
-  scope: "openid profile dealerApi role",
+  scope: "openid profile dealerApi custom.profile",
   post_logout_redirect_uri: "http://localhost:5003/index.html"
   //loadUserInfo: true
 };

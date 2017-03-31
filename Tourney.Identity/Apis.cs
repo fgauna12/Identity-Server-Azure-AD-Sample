@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
+using IdentityModel;
 using IdentityServer4.Models;
 
 namespace Tourney.Identity
 {
-    public class Resources
+    public class Apis
     {
         public static IEnumerable<ApiResource> Get()
         {
@@ -13,7 +14,7 @@ namespace Tourney.Identity
                 {
                     UserClaims = new List<string>()
                     {
-                        "role"
+                        JwtClaimTypes.Role
                     }
                 },
             };

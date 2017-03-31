@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Security.Claims;
+using IdentityModel;
 using IdentityServer4;
 using IdentityServer4.Models;
 
@@ -43,7 +44,7 @@ namespace Tourney.Identity
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
                         "dealerApi",
-                        "role"
+                        "custom.profile"
                     },
                     AlwaysIncludeUserClaimsInIdToken = true
                 }

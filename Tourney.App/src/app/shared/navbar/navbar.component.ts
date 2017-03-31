@@ -1,4 +1,4 @@
-import { AuthorizationService } from '../authorization.service';
+﻿import { AuthorizationService } from '../authorization.service';
 import { AuthenticationService } from '../authentication.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from 'oidc-client';
