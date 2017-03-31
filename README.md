@@ -15,7 +15,7 @@ Identity Server 4 is follows the [Open Id Connect](http://openid.net/connect/) s
 - **Tourney.Identity** - Single sign-on web app
     - ASP.NET Core using .NET core and Identity Server 4
     - It uses MVC for the front-end.
-    - _Needs to run at _http://localhost:5000"_
+    - _Needs to run at http://localhost:5000_
 - **Tourney.App** - Front-end built using Angular 2 and Typescript
     - You should have to log in to view data in "Facilities" tab
     - _Needs to run at http://localhost:5003_
@@ -43,6 +43,7 @@ Then run the app using:
 
 Using Visual Studio, set up multiple start up projects. 
 
-Make sure that you're not using IIS Express or the ports will be autosigned. From the project settings, specify to debug as **Project**
+Make sure that you're not using IIS Express or the ports will be auto-assigned. From the project settings, specify to debug as **Project**
+
 
 
