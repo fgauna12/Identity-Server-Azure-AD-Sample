@@ -1,8 +1,6 @@
 # Identity Server 4 Sample using Azure AD
 
-Sample web application secured by a single sign-on app using [Identity Server 4](https://github.com/IdentityServer/IdentityServer4). Web application is a SPA that uses a Web API to get its data.
-
-Identity Server 4 is follows the [Open Id Connect](http://openid.net/connect/) standard.
+Sample single page application secured by a single sign-on app using [Identity Server 4](https://github.com/IdentityServer/IdentityServer4). Identity Server 4 follows the [Open Id Connect](http://openid.net/connect/) standard.
 
 ## Requirements
 
@@ -49,3 +47,20 @@ Make sure that you're not using IIS Express or the ports will be auto-assigned. 
 
 ![Visual Studio - Set as Debug from Project Property](img/VisualStudioDebugProperty.PNG)
 
+### Custom Azure AD
+
+### Register the sample app
+
+Follow the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications) to register an application under a directory.
+
+### Configure the Azure AD settings in `Tourney.Identity`
+
+For Identity Server to use your Azure AD account, you need to configure the Open Id Connect settings.
+These settings are managed by **ASP.NET Core's Secret Manager** tool 
+
+Do `dotnet restore` on the root of the project to download the Secrets Manager tool.
+
+Then configure the following secrets:
+
+`AzureAd:ClientId` - [Your Azure AD Client ID aka _Application ID_]
+`AzureAd:Authority` - [Your Azure AD Authority aka _App ID URI_]
