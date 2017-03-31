@@ -47,5 +47,5 @@ Using Visual Studio, set up multiple start up projects.
 
 Make sure that you're not using IIS Express or the ports will be auto-assigned. From the project settings, specify to debug as **Project**
 
-![Visual Studio - Set as Debug from Project Property](img/VisualStudioDebugProperty.png)
+![Visual Studio - Set as Debug from Project Property](img/VisualStudioDebugProperty.PNG)
 
